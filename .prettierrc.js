@@ -9,4 +9,5 @@ module.exports = {
 	printWidth: 120,
 	eslintIntegration: true,
 	formatOnSave: true,
+	endOfLine: 'auto'
 };
