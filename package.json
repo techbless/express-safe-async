@@ -1,0 +1,31 @@
+{
+  "name": "error-deco-handler",
+  "version": "1.0.0",
+  "description": "Elegant error handler for async route handler in express",
+  "main": "index.js",
+  "keywords": [
+    "express",
+    "async",
+    "route",
+    "error",
+    "exception",
+    "handler",
+    "wrapper",
+    "decorator"
+  ],
+  "scripts": {
+    "lint": "eslint lib/**/*.ts",
+    "lint:fix": "eslint --fix lib/**/*.ts",
+    "build": "tsc"
+  },
+  "author": "Yunbin Chang <yunbin@hansung.ac.kr>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "eslint": "^6.8.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@types/node": "^13.11.1"
+  }
+}
