@@ -3,11 +3,11 @@ import { Request, Response, NextFunction } from 'express';
 
 function wrapAsync(asyncFn: Function) {
   // Handle execption safely during the handling request.
-  const exceptionHandler = async (req: Request, res: Response, next: NextFunction) => {
+  const exceptionHandler = async (req: Request, res: Response, next?: NextFunction) => {
     try {
       return await asyncFn(req, res, next);
     } catch (error) {
-      return next(error);
+      return next!(error);
     }
   };
 
