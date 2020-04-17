@@ -1,6 +1,6 @@
 {
   "name": "express-safe-async",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "Elegant async error handler with Decorator for async router function(controller) in express",
   "main": "dist/index.js",
   "homepage": "https://github.com/techbless/express-safe-async",
