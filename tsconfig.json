@@ -3,12 +3,16 @@
     "target": "es2016",
     "module": "commonjs",
     "declaration": true,
-    "outDir": "./dist",
-    "rootDir": "./lib",
+    "outDir": "dist",
+    "rootDirs": [
+      "lib",
+      "tests"
+    ],
     "strict": true,
     "esModuleInterop": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "exclude": ["./tests/**/*.ts"]
 }
