@@ -18,7 +18,7 @@
 
 
 
-If you use `async` method for route handler and middleware, There is some problem.When some error occured, express can't handle your errors although you use `try/catch` or `.catch()`. So you should deal with it your self. It is a pretty annoying task.   
+If you use `async` method for route handler and middleware, There must be some problem. When some error occured in `async` method, express can't handle your errors. So you should deal with it yourself. It is a pretty annoying task to handle this.   
 
 This library provides a simple and elegant decorator `@AsyncHandler` to handle these errors from `async` method. this decorator handles occured errors from `async` method and bind `this` automatically.   
 
