@@ -14,7 +14,15 @@
   </a>
 </p>
 
-> Elegant async error handler with Decorator for async router function(controller) in express
+> Elegant async error handler with Decorator for async router function(controller) in express   
+
+
+
+If you use `async` method for route handler and middleware, There is some problem.When some error occured, express can't handle your errors although you use `try/catch` or `.catch()`. So you should deal with it your self. It is a pretty annoying task.   
+
+This library provides a simple and elegant decorator `@AsyncHandler` to handle these errors from `async` method. this decorator handles occured errors from `async` method and bind `this` automatically.   
+
+`Nothing needs your attention anymore.`
 
 ### 🏠 [Homepage](https://github.com/techbless/express-safe-async)
 
@@ -26,22 +34,25 @@ npm install express-safe-async
 
 ## Usage
 
+Just write `@AsyncHandler` on your async methods.
+
+### Route handler
 ```typescript
 import * as express from 'express';
 import AsyncHandler from 'express-safe-async';
 
 class ExampleController {
-  @AsyncHandler
-  public async example(req: express.Request, res: express.Response) {
+  @AsyncHandler // <- This is all you should do.
+  public async asyncMethod(req: express.Request, res: express.Response) {
     // Your stuff here
     ...
   }
 }
 
-const testController = new TestController();
 const app = express();
+const example = new ExampleController();
 
-app.get('/example', testController.example);
+app.get('/example', example.asyncMethod);
 app.listen(PORT, (err) => {
   ...
 })
