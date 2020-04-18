@@ -2,7 +2,10 @@ import * as request from 'supertest';
 import { expect } from 'chai';
 import app from './app';
 
-app.listen(1234);
+/*
+  Although the result contains errors saying "onlyReqAndResWithError", "includingNextWithError",
+  Don't worry. This is intended internal error for error handling tests and not acutual error.
+*/
 
 describe('express-safe-async', () => {
   let req: request.SuperTest<request.Test>;
