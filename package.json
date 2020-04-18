@@ -1,12 +1,19 @@
 {
   "name": "express-safe-async",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0",
   "description": "Elegant async error handler with Decorator for async router function(controller) in express",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
   "homepage": "https://github.com/techbless/express-safe-async",
   "repository": {
     "type": "git",
     "url": "https://github.com/techbless/express-safe-async"
+  },
+  "author": {
+    "name": "Yunbin Chang",
+    "email": "yunbin@hansung.ac.kr",
+    "url": "https://techbless.github.io/about-me"
   },
   "keywords": [
     "Express",
@@ -23,18 +30,12 @@
     "wrapper",
     "decorator"
   ],
-  "author": {
-    "name": "Yunbin Chang",
-    "email": "yunbin@hansung.ac.kr",
-    "url": "https://techbless.github.io/about-me"
-  },
   "scripts": {
     "lint": "eslint lib/**/*.ts",
     "lint:fix": "eslint --fix lib/**/*.ts",
     "test": "mocha -r ts-node/register ./tests/**/*.spec.ts",
     "build": "tsc"
   },
-  "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.2.11",
     "@types/express": "^4.17.6",
