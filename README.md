@@ -20,7 +20,7 @@
 
 If you use `async` method for route handler and middleware, There is some problem.When some error occured, express can't handle your errors although you use `try/catch` or `.catch()`. So you should deal with it your self. It is a pretty annoying task.   
 
-This library provides a simple and elegant decorator `@AsyncHandler` to handle these errors from `async` method. this decorator handles occured errors from `async` method and bind `this` automatically.   
+This library provides a simple and elegant decorator `@AsyncHandled` to handle these errors from `async` method. this decorator handles occured errors from `async` method and bind `this` automatically.   
 
 `Nothing needs your attention anymore.`
 
@@ -34,15 +34,15 @@ npm install express-safe-async
 
 ## Usage
 
-Just write `@AsyncHandler` on your async methods.
+Just write `@AsyncHandled` on your async methods.
 
 ### Route handler
 ```typescript
 import * as express from 'express';
-import AsyncHandler from 'express-safe-async';
+import AsyncHandled from 'express-safe-async';
 
 class ExampleController {
-  @AsyncHandler // <- This is all you should do.
+  @AsyncHandled // <- This is all you should do.
   public async asyncMethod(req: express.Request, res: express.Response) {
     // Your stuff here
     ...

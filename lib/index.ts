@@ -1,9 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import { Request, Response, NextFunction } from 'express';
 
-function wrapAsync(asyncFn: Function) {
+function safe(asyncFn: Function) {
   // Handle execption safely during the handling request.
-  const exceptionHandler = async (req: Request, res: Response, next?: NextFunction) => {
+  const exceptionHandled = async (req: Request, res: Response, next?: NextFunction) => {
     try {
       return await asyncFn(req, res, next);
     } catch (error) {
@@ -11,11 +11,11 @@ function wrapAsync(asyncFn: Function) {
     }
   };
 
-  return exceptionHandler;
+  return exceptionHandled;
 }
 
 // Decorator binding this and handling exception.
-function AsyncHandler<T extends Function>(target: object, propertyKey: string, descriptor: TypedPropertyDescriptor<T>) {
+function AsyncHandled<T extends Function>(target: object, propertyKey: string, descriptor: TypedPropertyDescriptor<T>) {
   // If decorated somthing is not function, throw an error.
   if (!descriptor || typeof descriptor.value !== 'function') {
     throw new TypeError(`Only methods can be decorated with @AsyncHandler. <${propertyKey}> is not a method.`);
@@ -32,10 +32,10 @@ function AsyncHandler<T extends Function>(target: object, propertyKey: string, d
         writable: true,
       });
 
-      return wrapAsync(bound);
+      return safe(bound);
     },
   };
 }
 
-export { wrapAsync, AsyncHandler };
-export default AsyncHandler;
+export { safe, AsyncHandled };
+export default AsyncHandled;

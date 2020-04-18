@@ -1,23 +1,23 @@
 import * as express from 'express';
-import AsyncHandler from '../lib';
+import AsyncHandled from '../lib';
 
 class TestController {
-  @AsyncHandler
+  @AsyncHandled
   public async onlyReqAndRes(_req: express.Request, res: express.Response) {
     res.status(200).send('onlyReqAndRes');
   }
 
-  @AsyncHandler
+  @AsyncHandled
   public async onlyReqAndResWithError(_req: express.Request, _res: express.Response) {
     throw Error('onlyReqAndResWithError');
   }
 
-  @AsyncHandler
+  @AsyncHandled
   public async includingNext(_req: express.Request, res: express.Response, _next: express.NextFunction) {
     res.status(200).send('onlyReqAndRes');
   }
 
-  @AsyncHandler
+  @AsyncHandled
   public async includingNextWithError(_req: express.Request, _res: express.Response, _next: express.NextFunction) {
     throw Error('includingNextWithError');
   }
