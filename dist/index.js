@@ -9,9 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-function wrapAsync(asyncFn) {
+function safe(asyncFn) {
     // Handle execption safely during the handling request.
-    const exceptionHandler = (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+    const exceptionHandled = (req, res, next) => __awaiter(this, void 0, void 0, function* () {
         try {
             return yield asyncFn(req, res, next);
         }
@@ -19,11 +19,11 @@ function wrapAsync(asyncFn) {
             return next(error);
         }
     });
-    return exceptionHandler;
+    return exceptionHandled;
 }
-exports.wrapAsync = wrapAsync;
+exports.safe = safe;
 // Decorator binding this and handling exception.
-function AsyncHandler(target, propertyKey, descriptor) {
+function AsyncHandled(target, propertyKey, descriptor) {
     // If decorated somthing is not function, throw an error.
     if (!descriptor || typeof descriptor.value !== 'function') {
         throw new TypeError(`Only methods can be decorated with @AsyncHandler. <${propertyKey}> is not a method.`);
@@ -37,9 +37,9 @@ function AsyncHandler(target, propertyKey, descriptor) {
                 configurable: true,
                 writable: true,
             });
-            return wrapAsync(bound);
+            return safe(bound);
         },
     };
 }
-exports.AsyncHandler = AsyncHandler;
-exports.default = AsyncHandler;
+exports.AsyncHandled = AsyncHandled;
+exports.default = AsyncHandled;
