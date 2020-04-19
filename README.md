@@ -22,7 +22,9 @@ If you use `async` method for route handler and middleware, There must be some p
 
 This library provides a simple and elegant decorator `@AsyncHandled` to handle these errors from `async` method. this decorator handles occured errors from `async` method and bind `this` automatically.   
 
-`Nothing needs your attention anymore.`
+```
+Nothing needs your attention anymore.
+```
 
 ### 🏠 [Homepage](https://github.com/techbless/express-safe-async)
 
@@ -30,6 +32,18 @@ This library provides a simple and elegant decorator `@AsyncHandled` to handle t
 
 ```sh
 npm install express-safe-async
+```
+
+## Import
+
+TypeScript
+```typescript
+import AsyncHandled, { safe } from 'express-safe-async';
+```
+
+JavaScript
+```javascript
+const safe = require('express-safe-async').safe;
 ```
 
 ## Usage
@@ -90,17 +104,19 @@ const app = express();
 app.use(safe( // <- This is all you should do
   async () => {
     // Your middleware here
+    ...
   }
 ));
 
 app.get('/example', safe( // <- This is all you should do
   async (req: express.Request, res: express.Response) => {
     // Your route handler here
+    ...
   }
 ));
 
 app.listen(1234, (err) => {
-
+  ...
 });
 ```
 
