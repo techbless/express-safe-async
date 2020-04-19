@@ -34,9 +34,28 @@ npm install express-safe-async
 
 ## Usage
 
+To use Decorator, Make sure the below line is in your tsconfig.json
+
+**tsconfig.json**
+```json
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "experimentalDecorators": true
+    }
+}
+```
+
+**or**
+
+```sh
+tsc --target ES5 --experimentalDecorators
+```
+
+### Using Class Method
+
 Just write `@AsyncHandled` on your async methods.
 
-### Route handler
 ```typescript
 import * as express from 'express';
 import AsyncHandled from 'express-safe-async';
@@ -55,7 +74,34 @@ const example = new ExampleController();
 app.get('/example', example.asyncMethod);
 app.listen(PORT, (err) => {
   ...
-})
+});
+```
+
+### Not Using Class Method
+
+Wrap your functions with `safe()` like below.
+
+```typescript
+import * as express from 'express';
+import { safe } from 'express-safe-async';
+
+const app = express();
+
+app.use(safe( // <- This is all you should do
+  async () => {
+    // Your middleware here
+  }
+));
+
+app.get('/example', safe( // <- This is all you should do
+  async (req: express.Request, res: express.Response) => {
+    // Your route handler here
+  }
+));
+
+app.listen(1234, (err) => {
+
+});
 ```
 
 ## Run tests when you contribute
