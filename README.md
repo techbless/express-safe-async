@@ -1,22 +1,13 @@
 <h1 align="center">Welcome to express-safe-async 👋</h1>
-<p>
-  <a href="https://www.npmjs.com/package/express-safe-async" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/express-safe-async.svg">
-  </a>
-  <a href="https://github.com/techbless/express-safe-async#readme" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
-  <a href="https://github.com/techbless/express-safe-async/graphs/commit-activity" target="_blank">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
-  </a>
-  <a href="https://github.com/techbless/express-safe-async/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/techbless/express-safe-async" />
-  </a>
+<p align="center">
+  <img alt="Version" src="https://img.shields.io/npm/v/express-safe-async.svg">
+  <img alt="travis" src="https://travis-ci.org/techbless/express-safe-async.svg?branch=master" />
+  <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  <img alt="License: MIT" src="https://img.shields.io/github/license/techbless/express-safe-async" />
 </p>
 
 > Elegant async error handler with Decorator for async router function(controller) in express   
-
-
 
 If you use `async` method for route handler and middleware, There must be some problem. When some error occured in `async` method, express can't handle your errors. So you should deal with it yourself. It is a pretty annoying task to handle this.   
 
@@ -29,6 +20,8 @@ Nothing needs your attention anymore.
 ### 🏠 [Homepage](https://github.com/techbless/express-safe-async)
 
 ## Install
+
+**Highly Recommend to use higher version than v2.0.1, If you are using lower version, You should update it.**
 
 ```sh
 npm install express-safe-async
