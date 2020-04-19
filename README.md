@@ -1,4 +1,7 @@
-<h1 align="center">Welcome to express-safe-async 👋</h1>
+<p align="center">
+  <img src="logo.png" alt="logo">
+</p>
+
 <p align="center">
   <img alt="Version" src="https://img.shields.io/npm/v/express-safe-async.svg">
   <img alt="travis" src="https://travis-ci.org/techbless/express-safe-async.svg?branch=master" />
